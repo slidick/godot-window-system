@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwby27ghs5osy"]
+
+[ext_resource type="Script" uid="uid://ln8wvobtk4t4" path="res://addons/window_system/windows/dialog_window.gd" id="1_fd1t0"]
+[ext_resource type="PackedScene" uid="uid://dmlpnp15mw2fo" path="res://addons/window_system/windows/base_window.tscn" id="2_afq6f"]
+
+[node name="DialogWindow" instance=ExtResource("2_afq6f")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -47.5
+offset_right = 118.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fd1t0")
+movable = false
+resizable = false
+exclusive = true
+allow_off_click = true
+show_maximize_button = false
+show_close_button = false
+show_focus_highlight = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer/MainContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/VBoxContainer/MainContainer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="InfoLabel" type="RichTextLabel" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+mouse_default_cursor_shape = 1
+selection_enabled = true
+
+[node name="SingleContainer" type="VBoxContainer" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DialogLabel" type="Label" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/SingleContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DialogLineEdit" type="LineEdit" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/SingleContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MultiContainer" type="VBoxContainer" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmLabel" type="Label" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="3"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="4"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="CancelButton" type="Button" parent="Contents/VBoxContainer/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="ConfirmButton" type="Button" parent="Contents/VBoxContainer/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Confirm"
+
+[connection signal="text_changed" from="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/SingleContainer/DialogLineEdit" to="." method="_on_dialog_line_edit_text_changed"]
+[connection signal="text_submitted" from="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/SingleContainer/DialogLineEdit" to="." method="_on_dialog_line_edit_text_submitted"]
+[connection signal="pressed" from="Contents/VBoxContainer/MarginContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Contents/VBoxContainer/MarginContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

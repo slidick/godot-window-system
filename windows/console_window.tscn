@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq7huk8wljmgp"]
+
+[ext_resource type="PackedScene" uid="uid://dmlpnp15mw2fo" path="res://addons/window_system/windows/base_window.tscn" id="1_40jsv"]
+[ext_resource type="Script" uid="uid://lq5ip6y2l02m" path="res://addons/window_system/windows/console_window.gd" id="2_2mhkq"]
+[ext_resource type="Script" uid="uid://b4s2rcoyyahud" path="res://addons/window_system/windows/console_edit.gd" id="4_njpr4"]
+
+[sub_resource type="SystemFont" id="SystemFont_n315t"]
+font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
+
+[node name="ConsoleWindow" instance=ExtResource("1_40jsv")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 800.0
+offset_bottom = 0.0
+grow_vertical = 0
+script = ExtResource("2_2mhkq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer/MainContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/VBoxContainer/MainContainer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="ConsoleText" type="RichTextLabel" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+mouse_default_cursor_shape = 1
+theme_override_colors/default_color = Color(0.629675, 0.629675, 0.629675, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_n315t")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+scroll_following = true
+context_menu_enabled = true
+selection_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="ClearButton" type="Button" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleText" index="1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_bottom = 31.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+text = "."
+
+[node name="ConsoleEdit" type="LineEdit" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+placeholder_text = "Send command..."
+caret_blink = true
+script = ExtResource("4_njpr4")
+
+[connection signal="pressed" from="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleText/ClearButton" to="." method="_on_clear_button_pressed"]
+[connection signal="next" from="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleEdit" to="." method="_on_console_edit_next"]
+[connection signal="previous" from="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleEdit" to="." method="_on_console_edit_previous"]
+[connection signal="text_submitted" from="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleEdit" to="." method="_on_console_edit_text_submitted"]
