@@ -2,7 +2,7 @@ extends BaseWindow
 class_name DialogWindow
 
 signal _done(_bool: bool, _value: String)
-signal _done_confirm(_bool: bool)
+
 signal _done_multi(_bool: bool, _values: Array[String])
 
 #var _allow_click_off : bool = true
@@ -68,7 +68,7 @@ func confirm(_label_text: String, _title_text: String = "Confirm?", p_allow_clic
 	return results
 
 
-func information(_label_text: String, _title_text: String = "Info", p_allow_click_off: bool = true, _size : Vector2 = Vector2(900,800), _button_text: String = "Close") -> void:
+func information(_label_text: String, _title_text: String = "Info", p_allow_click_off: bool = true, _size : Vector2 = Vector2(900,800), _button_text: String = "Close", _horiz_alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT) -> void:
 	#if _dialog_open:
 		#return
 	#_dialog_open = true
@@ -79,6 +79,7 @@ func information(_label_text: String, _title_text: String = "Info", p_allow_clic
 	%ConfirmButton.hide()
 	%CancelButton.text = _button_text
 	%InfoLabel.show()
+	%InfoLabel.horizontal_alignment = _horiz_alignment
 	_fade_in()
 	%CancelButton.grab_focus()
 	await _done_confirm

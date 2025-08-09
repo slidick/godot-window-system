@@ -3,6 +3,7 @@ class_name BaseWindow
 
 signal window_shown(_bool: bool)
 signal window_maximized(_bool: bool)
+signal _done_confirm(_bool: bool)
 
 #@export var window_title : String = "My Window"
 @export var movable : bool = true
@@ -431,7 +432,12 @@ func toggle_maximize() -> void:
 
 func _on_background_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and allow_off_click:
-		_hide()
+		match minimize_style:
+			"minimize":
+				_hide()
+			"fade_out":
+				_fade_out()
+		_done_confirm.emit(false)
 
 
 func _on_header_container_gui_input(event: InputEvent) -> void:
