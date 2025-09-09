@@ -279,6 +279,10 @@ func _on_close_button_pressed() -> void:
 
 func toggle(_bool: Variant = null) -> void:
 	if typeof(_bool) == TYPE_BOOL:
+		if _bool == visible:
+			if visible:
+				grab_focus()
+			return
 		if _bool == true:
 			match minimize_style:
 				"minimize":
