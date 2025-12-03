@@ -251,6 +251,7 @@ func _ready() -> void:
 		resize_container.add_child(bottom_right_corner)
 		resize_container.add_child(bottom_left_corner)
 		add_child(resize_container)
+		move_child(resize_container, 3 if show_focus_highlight else 2)
 	
 	# Bugfix: Positions aren't properly set if we don't wait a frame
 	await get_tree().process_frame
