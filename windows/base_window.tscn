@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmlpnp15mw2fo"]
+[gd_scene format=3 uid="uid://dmlpnp15mw2fo"]
 
 [ext_resource type="Script" uid="uid://cjqf6mwxsfey5" path="res://addons/window_system/windows/base_window.gd" id="2_qe52n"]
 
-[node name="BasePanel" type="PanelContainer"]
+[node name="BasePanel" type="PanelContainer" unique_id=452268762]
 offset_right = 600.0
 offset_bottom = 400.0
 focus_mode = 1
@@ -12,11 +12,11 @@ allow_off_click = false
 focus_border_color = Color(0.0745098, 0.466667, 0.686275, 1)
 panel_color = Color(0, 0.301961, 0.529412, 1)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1456915901]
 show_behind_parent = true
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Control"]
+[node name="Background" type="Panel" parent="Control" unique_id=1555277503]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -29,26 +29,26 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 1
 
-[node name="Contents" type="MarginContainer" parent="."]
+[node name="Contents" type="MarginContainer" parent="." unique_id=1183270553]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents" unique_id=384367087]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HeaderContainer" type="MarginContainer" parent="Contents/VBoxContainer"]
+[node name="HeaderContainer" type="MarginContainer" parent="Contents/VBoxContainer" unique_id=1015888847]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Contents/VBoxContainer/HeaderContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/VBoxContainer/HeaderContainer" unique_id=1956686340]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer" unique_id=1521246386]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 3
@@ -56,12 +56,12 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="WindowTitle" type="Label" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer"]
+[node name="WindowTitle" type="Label" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer" unique_id=50400695]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="MarginContainer2" type="MarginContainer" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer" unique_id=1877131309]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 3
@@ -69,21 +69,21 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer/MarginContainer2" unique_id=44187531]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="MaximizeButton" type="Button" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="MaximizeButton" type="Button" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1314008795]
 unique_name_in_owner = true
 layout_mode = 2
 text = "[ ]"
 
-[node name="CloseButton" type="Button" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="CloseButton" type="Button" parent="Contents/VBoxContainer/HeaderContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1628241283]
 unique_name_in_owner = true
 layout_mode = 2
 text = "X"
 
-[node name="MainContainer" type="PanelContainer" parent="Contents/VBoxContainer"]
+[node name="MainContainer" type="PanelContainer" parent="Contents/VBoxContainer" unique_id=2051013205]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

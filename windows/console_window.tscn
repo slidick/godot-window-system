@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq7huk8wljmgp"]
+[gd_scene format=3 uid="uid://cq7huk8wljmgp"]
 
 [ext_resource type="PackedScene" uid="uid://dmlpnp15mw2fo" path="res://addons/window_system/windows/base_window.tscn" id="1_40jsv"]
 [ext_resource type="Script" uid="uid://lq5ip6y2l02m" path="res://addons/window_system/windows/console_window.gd" id="2_2mhkq"]
@@ -8,7 +8,7 @@
 font_names = PackedStringArray("Monospace")
 subpixel_positioning = 0
 
-[node name="ConsoleWindow" instance=ExtResource("1_40jsv")]
+[node name="ConsoleWindow" unique_id=55391154 instance=ExtResource("1_40jsv")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -18,17 +18,17 @@ offset_bottom = 0.0
 grow_vertical = 0
 script = ExtResource("2_2mhkq")
 
-[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer/MainContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="Contents/VBoxContainer/MainContainer" parent_id_path=PackedInt32Array(2051013205) index="0" unique_id=1770609509]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/VBoxContainer/MainContainer/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/VBoxContainer/MainContainer/MarginContainer" index="0" unique_id=1447921744]
 layout_mode = 2
 
-[node name="ConsoleText" type="RichTextLabel" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="0"]
+[node name="ConsoleText" type="RichTextLabel" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="0" unique_id=1606678460]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -43,7 +43,7 @@ context_menu_enabled = true
 selection_enabled = true
 deselect_on_focus_loss_enabled = false
 
-[node name="ClearButton" type="Button" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleText" index="1"]
+[node name="ClearButton" type="Button" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer/ConsoleText" index="2" unique_id=660088452]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -54,7 +54,7 @@ grow_horizontal = 0
 size_flags_horizontal = 8
 text = "."
 
-[node name="ConsoleEdit" type="LineEdit" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="1"]
+[node name="ConsoleEdit" type="LineEdit" parent="Contents/VBoxContainer/MainContainer/MarginContainer/VBoxContainer" index="1" unique_id=669413057]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
