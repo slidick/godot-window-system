@@ -45,6 +45,8 @@ func reset() -> void:
 	%SingleContainer.hide()
 	%MultiContainer.hide()
 	%ErrorLabel.hide()
+	%CheckBox.hide()
+	%HSeparator.hide()
 	_dialog_open = false
 
 
@@ -66,6 +68,23 @@ func confirm(_label_text: String, _title_text: String = "Confirm?", p_allow_clic
 	var results: bool = await _done_confirm
 	await reset()
 	return results
+
+
+func confirm_additional(_label_text: String, _title_text: String = "Confirm?", _additional_checkbox_query: String = "Are you extra sure?", _additional_checkbox_default: bool = false, p_allow_click_off: bool = false, _size: Vector2 = Vector2(400,200)) -> Array:
+	allow_off_click = p_allow_click_off
+	set_panel_size(_size)
+	self.window_title = _title_text
+	%ConfirmLabel.text = _label_text
+	%ConfirmLabel.show()
+	%CheckBox.button_pressed = _additional_checkbox_default
+	%CheckBox.text = _additional_checkbox_query
+	%CheckBox.show()
+	%HSeparator.show()
+	_fade_in()
+	%ConfirmButton.grab_focus()
+	var results: bool = await _done_confirm
+	await reset()
+	return [results, %CheckBox.button_pressed]
 
 
 func information(_label_text: String, _title_text: String = "Info", p_allow_click_off: bool = true, _size : Vector2 = Vector2(900,800), _button_text: String = "Close", _horiz_alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT) -> void:
