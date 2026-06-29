@@ -20,6 +20,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle()
 
 
+func toggle(_bool: Variant = null) -> void:
+	super.toggle(_bool)
+	%ConsoleEdit.grab_focus()
+
+
 func print(message: Variant) -> void:
 	while not _is_ready:
 		await get_tree().process_frame
