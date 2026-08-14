@@ -334,6 +334,7 @@ func _hide() -> void:
 	_tween.tween_callback(self.hide)
 	_tween.tween_property(self, "_hiding", false, 0.0)
 	window_shown.emit(false)
+	await _tween.finished
 
 
 func _show() -> void:
@@ -348,6 +349,7 @@ func _show() -> void:
 		_tween.parallel().tween_property(%Background, "visible", true, 0)
 	window_shown.emit(true)
 	grab_focus()
+	await _tween.finished
 
 
 func _fade_in() -> void:
@@ -360,6 +362,7 @@ func _fade_in() -> void:
 		_tween.parallel().tween_property(%Background, "visible", true, 0)
 	window_shown.emit(true)
 	grab_focus()
+	await _tween.finished
 
 
 func _fade_out() -> void:
